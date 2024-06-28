@@ -1,0 +1,17 @@
+.genreBTN {
+    background-color: #61dafb;
+    border: none;
+    min-width: 110px;
+    padding: 8px;
+    border-radius: 23px;
+    cursor: pointer;
+    font-family: "Playwrite MX", cursive;
+    font-optical-sizing: auto;
+    font-size: 11px;
+}
+
+.genreBTN:hover {
+    transition: .3s all linear;
+    background: black;
+    color: #61dafb;
+}
