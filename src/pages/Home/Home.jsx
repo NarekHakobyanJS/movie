@@ -6,22 +6,26 @@ import { changePage } from '../../store/slices/movieSlice'
 
 
 const Home = () => {
+  let portionSize = 10
+  let [portionNumber, setPortionNumber] = useState(1)
+  let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1
+  let rightPortionPageNumber = portionNumber * portionSize
+
+
   const [currentPageStyle, setCurentPageStyle] = useState(1)
   const { movies, total_results, pageSize } = useSelector((state) => state.movieData);
   const dispatch = useDispatch()
   let resultCount = Math.ceil(total_results / pageSize)
   let paginateBTN = []
 
-  // let resutls = useMemo(() => {
-  //   for (let i = 1; i <= resultCount; i++) {
-  //     paginateBTN.push(i)
-  //   }
-  //   return paginateBTN.length
-  // }, [paginateBTN])
+  let resutls = useMemo(() => {
+    for (let i = 1; i <= resultCount; i++) {
+      paginateBTN.push(i)
+    }
+    return paginateBTN.length
+  }, [paginateBTN])
 
-  for (let i = 1; i <= 10; i++) {
-        paginateBTN.push(i)
-      }
+
 
   const goToSelectedPage = (page) => {
     setCurentPageStyle(page);
@@ -32,16 +36,28 @@ const Home = () => {
     <div className='home'>
       <div className='home-card'>
         {
-          movies.map((movie) => {
-            return <MovieCard key={movie.id} movie={movie} />
-          })
+          movies
+            .map((movie) => {
+              return <MovieCard key={movie.id} movie={movie} />
+            })
         }
       </div>
       <div className='pagination'>
         {
-          paginateBTN.map((page) => {
-            return <button className={page === currentPageStyle ? 'active-page' : ''} onClick={() => goToSelectedPage(page)}>{page}</button>
-          })
+          portionNumber > 1 &&
+          <button onClick={() => { setPortionNumber(portionNumber - 1) }}>prev</button>
+        }
+
+        {
+          paginateBTN
+            .filter((movie) => movie >= leftPortionPageNumber && movie <= rightPortionPageNumber)
+            .map((page) => {
+              return <button className={page === currentPageStyle ? 'active-page' : ''} onClick={() => goToSelectedPage(page)}>{page}</button>
+            })
+        }
+        {
+          pageSize > portionNumber &&
+          <button onClick={() => { setPortionNumber(portionNumber + 1) }}>next</button>
         }
       </div>
     </div>
