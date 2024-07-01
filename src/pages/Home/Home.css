@@ -1,0 +1,13 @@
+.home-card {
+    padding-top: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-self: auto;
+}
+
+.active-page {
+    background: red;
+}

@@ -1,0 +1,26 @@
+.lodingGif{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 10px solid rgb(44, 44, 44);
+    border-top: 10px solid white;
+    animation: animate 1.5s infinite linear;
+}
+
+
+.size-1{
+    width: 30px;
+    height: 30px;
+}
+@keyframes animate {
+    0%{
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    100%{
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+}

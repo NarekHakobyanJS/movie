@@ -8,5 +8,8 @@ const instance = axios.create({
 export const filmsAPI = {
     getGenres(){
         return instance.get(`/genre/movie/list?api_key=${apiKey}&language=en-US`)
+    },
+    getMoviesByPage(pageCount){
+        return instance.get(`discover/movie?api_key=${apiKey}&language=en-US&page=${pageCount}`)
     }
 }
