@@ -14,7 +14,7 @@
     -moz-box-shadow: 0px 34px 40px -11px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 34px 40px -11px rgba(0, 0, 0, 0.75);
 }
-.movie-card > img {
+.movie-card > a > img {
     width: 75%;
     margin : 0 auto;
     display: block;

@@ -6,7 +6,7 @@ import {fetchMovie} from './store/slices/movieSlice'
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home/Home';
-
+import { FilmPage } from './pages/FilmPage/FilmPage';
 function App() {
 
   const dispatch = useDispatch()
@@ -22,6 +22,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<Home /> }/>
+        <Route path='/film/:id' element={<FilmPage /> }/>
       </Routes>
     </div>
     </>

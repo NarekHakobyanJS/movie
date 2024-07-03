@@ -28,3 +28,31 @@ nav {
     overflow-y: scroll;
     gap: 5px;
 }
+
+.search {
+    width: 340px;
+    height: 550px;
+    background: white;
+    position: absolute;
+    top : 30px;
+    right: 0;
+    overflow-y: scroll;
+}
+
+.search-block {
+    position: relative;
+}
+
+.search-film {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.search-film > a > img {
+    width: 150px;
+    cursor: pointer;
+}
